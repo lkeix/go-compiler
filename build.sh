@@ -1,5 +1,7 @@
-go run main.go > out.as
+go build -o a.out main.go
+./a.out "$1" > out.as
+
 as -o out.o out.as
-ld -o a.out -L /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/lib -lSystem out.o
+ld -o go-compiler -L /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/lib -lSystem out.o
 
 rm -rf out.s out.o
